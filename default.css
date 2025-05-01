@@ -1,19 +1,21 @@
 :root{
-	--mainColor:#eaeaea;
-	--secondaryColor:#fff;
+	--mainColor:#f8f9fc;
+	--secondaryColor:#ffffff;
 
-	--borderColor:#c1c1c1;
+	--borderColor:#e0e5f2;
 
-	--mainText:black;
-	--secondaryText:#4b5156;
+	--mainText:#2d3748;
+	--secondaryText:#718096;
 
-	--themeDotBorder:#24292e;
+	--themeDotBorder:#4a5568;
 
-	--previewBg:rgb(251, 249, 243, 0.8);
-	--previewShadow:#f0ead6;
+	--previewBg:rgba(247, 250, 252, 0.8);
+	--previewShadow:#edf2f7;
 
+	--buttonColor:#4299e1;
 
-	--buttonColor:black;
+	--accentColor:#4299e1;
+	--timelineColor:#4a5568;
 }
 
 
@@ -374,10 +376,88 @@ h6 { font-size: 16px;}
 	background-color: var(--previewShadow);
 }
 
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--previewShadow);
+    border-radius: 8px;
+}
+
+.skill-chip {
+    background-color: var(--secondaryColor);
+    color: #17a2b8;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border: 1px solid #17a2b8;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.skill-chip:hover {
+    background-color: #17a2b8;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(23, 162, 184, 0.2);
+}
+
 .social-links{
 	display: grid;
 	align-content: center;
 	text-align: center;
+	padding: 30px;
+}
+
+.education-section {
+    background-color: var(--mainColor);
+    padding: 50px 0;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.education-item {
+    background: var(--secondaryColor);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--borderColor);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.education-item .school {
+    color: var(--mainText);
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+}
+
+.education-item .degree {
+    color: #17a2b8;
+    font-size: 1em;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.education-item .duration,
+.education-item .location {
+    color: var(--secondaryText);
+    font-size: 0.9em;
+    margin: 0 0 5px 0;
 }
 
 .project-wrapper{
@@ -393,10 +473,10 @@ h6 { font-size: 16px;}
 	border: none;
 	border-radius: 12px;
 	overflow: hidden;
-	background-color: white;
-	-webkit-box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-	box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+	background-color: var(--secondaryColor);
+	-webkit-box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+	box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	display: flex;
 	flex-direction: column;
@@ -413,8 +493,8 @@ h6 { font-size: 16px;}
     object-fit: contain;
     display: block;
     height: 220px;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #eee;
+    background-color: var(--mainColor);
+    border-bottom: 1px solid var(--borderColor);
 }
 .project-preview{
     background-color: white;
@@ -452,11 +532,11 @@ h6 { font-size: 16px;}
 }
 
 .tag-android {
-	background-color: #3DDC84;
+	background-color: #48bb78;
 }
 
 .tag-web {
-	background-color: #2196F3;
+	background-color: var(--accentColor);
 }
 
 .project-intro{
@@ -495,7 +575,7 @@ h6 { font-size: 16px;}
     position: absolute;
     left: 16px;
     width: 2px;
-    background-color: var(--borderColor);
+    background-color: var(--timelineColor);
     top: 40px;
     bottom: 40px;
     height: calc(100% - 80px);
@@ -514,11 +594,11 @@ h6 { font-size: 16px;}
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -35px;
+    left: -25px;
     width: 12px;
     height: 12px;
     background-color: white;
-    border: 2px solid var(--borderColor);
+    border: 2px solid var(--timelineColor);
     border-radius: 50%;
     top: 8px;
     z-index: 1;
