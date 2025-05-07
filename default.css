@@ -346,8 +346,50 @@ h6 { font-size: 16px;}
     display: grid;
     padding-bottom: 50px;
 	padding-top: 50px;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:100px;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.left-content, .right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.certificates {
+    margin-top: 30px;
+}
+
+.certificate-list {
+    margin-top: 15px;
+}
+
+.certificate-item {
+    background-color: #ffffff;
+    border: 1px solid #4299e1;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.certificate-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(66, 153, 225, 0.2);
+}
+
+.certificate-item p {
+    margin: 0;
+    color: #2d3748;
+    font-size: 0.95em;
+    font-weight: 500;
 }
 #skills{
     display: flex;
