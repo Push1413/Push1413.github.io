@@ -1,37 +1,16 @@
-:root{
-	--mainColor:#f8f9fc;
-	--secondaryColor:#ffffff;
-
-	--borderColor:#e0e5f2;
-
-	--mainText:#2d3748;
-	--secondaryText:#718096;
-
-	--themeDotBorder:#4a5568;
-
-	--previewBg:rgba(247, 250, 252, 0.8);
-	--previewShadow:#edf2f7;
-
-	--buttonColor:#4299e1;
-
-	--accentColor:#4299e1;
-	--timelineColor:#4a5568;
-}
-
-
 html,body{
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6, strong{
-	color: var(--mainText);
+	color: #2d3748;
 	font-family: 'Russo One', sans-serif;
 	font-weight: 500;
 }
 
 p, li, span, label, input, textarea{
-	color: var(--secondaryText);
+	color: #718096;
 	font-family: 'Roboto Mono', monospace;
 }
 
@@ -52,14 +31,14 @@ h5 { font-size: 20px;}
 h6 { font-size: 16px;}
 
 .s1{
-    background-color: var(--mainColor);
-    border-bottom: 1px solid var(--borderColor); 
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e0e5f2; 
     overflow: auto;
 }
 
 .s2{
-    background-color: var(--secondaryColor);
-    border-bottom: 1px solid var(--borderColor);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e5f2;
     overflow: auto;
 }
 
@@ -161,8 +140,8 @@ h6 { font-size: 16px;}
 }
 
 .intro-wrapper{
-	background-color: var(--secondaryColor);
-	border:1px solid var(--borderColor);
+	background-color: #ffffff;
+	border:1px solid #e0e5f2;
 	border-radius:5px 5px 0 0;
 
 
@@ -183,7 +162,7 @@ h6 { font-size: 16px;}
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--mainColor);
+    background-color: #f8f9fc;
     /* border-radius:5px 5px 0 0; */
 
 }
@@ -264,7 +243,7 @@ h6 { font-size: 16px;}
 	border-radius: 50%;
 
 	margin: 5px;
-	border:2px solid var(--themeDotBorder);
+	border:2px solid #4a5568;
 
 	-webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
 	-moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
@@ -303,7 +282,7 @@ h6 { font-size: 16px;}
 #preview{
 	width: 300px;
 	border:1.5px solid #17a2b8;
-	background-color: var(--previewBg);
+	background-color: rgba(247, 250, 252, 0.8);
 	padding:15px;
 	position: relative;
 }
@@ -340,7 +319,7 @@ h6 { font-size: 16px;}
 	left: -5px
 }
 #preview-shadow{
-    background-color: var(--previewShadow);
+    background-color: #edf2f7;
 	max-width: 300px;
 	height: 180px;
 	padding-left: 30px;
@@ -373,7 +352,7 @@ h6 { font-size: 16px;}
 #skills{
     display: flex;
     justify-content: space-evenly;
-	background-color: var(--previewShadow);
+	background-color: #f7f9fc;
 }
 
 .skills-container {
@@ -381,24 +360,24 @@ h6 { font-size: 16px;}
     flex-wrap: wrap;
     gap: 10px;
     padding: 15px;
-    background-color: var(--previewShadow);
+    background-color: #f7f9fc;
     border-radius: 8px;
 }
 
 .skill-chip {
-    background-color: var(--secondaryColor);
-    color: #17a2b8;
+    background-color: #ffffff;
+    color: #4299e1;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 500;
-    border: 1px solid #17a2b8;
+    border: 1px solid #4299e1;
     transition: all 0.2s ease;
     cursor: default;
 }
 
 .skill-chip:hover {
-    background-color: #17a2b8;
+    background-color: #4299e1;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(23, 162, 184, 0.2);
@@ -412,7 +391,7 @@ h6 { font-size: 16px;}
 }
 
 .education-section {
-    background-color: var(--mainColor);
+    background-color: #f8f9fc;
     padding: 50px 0;
 }
 
@@ -424,8 +403,8 @@ h6 { font-size: 16px;}
 }
 
 .education-item {
-    background-color: var(--secondaryColor);
-    border: 1px solid var(--borderColor);
+    background-color: #f7f9fc;
+    border: 1px solid #4a5568;
     border-radius: 5px;
     padding: 1.5rem;
     box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
@@ -433,7 +412,7 @@ h6 { font-size: 16px;}
 
 .school {
     margin: 0 0 0.75rem 0;
-    color: var(--mainText);
+    color: #2c3e50;
     font-size: 1.1rem;
 }
 
@@ -444,7 +423,7 @@ h6 { font-size: 16px;}
 
 .duration, .location {
     margin: 0.3rem 0;
-    color: var(--secondaryText);
+    color: #718096;
     font-size: 0.85rem;
 }
 
@@ -454,13 +433,13 @@ h6 { font-size: 16px;}
 }
 
 .education-item .school {
-    color: var(--mainText);
+    color: #2c3e50;
     font-size: 1.2em;
     margin: 0 0 10px 0;
 }
 
 .education-item .degree {
-    color: #17a2b8;
+    color: #4299e1;
     font-size: 1em;
     margin: 0 0 8px 0;
     font-weight: 500;
@@ -468,7 +447,7 @@ h6 { font-size: 16px;}
 
 .education-item .duration,
 .education-item .location {
-    color: var(--secondaryText);
+    color: #718096;
     font-size: 0.9em;
     margin: 0 0 5px 0;
 }
@@ -486,7 +465,7 @@ h6 { font-size: 16px;}
 	border: none;
 	border-radius: 12px;
 	overflow: hidden;
-	background-color: var(--secondaryColor);
+	background-color: #f7f9fc;
 	-webkit-box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 	-moz-box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 	box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -506,8 +485,8 @@ h6 { font-size: 16px;}
     object-fit: contain;
     display: block;
     height: 220px;
-    background-color: var(--mainColor);
-    border-bottom: 1px solid var(--borderColor);
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #4a5568;
 }
 .project-preview{
     background-color: white;
@@ -549,7 +528,7 @@ h6 { font-size: 16px;}
 }
 
 .tag-web {
-	background-color: var(--accentColor);
+	background-color: #4299e1;
 }
 
 .project-intro{
@@ -560,7 +539,7 @@ h6 { font-size: 16px;}
 /* Experience Timeline Styles */
 .experience {
     padding: 50px 0px;
-    background-color: var(--mainColor);
+    background-color: #f8f9fc;
 }
 
 .experience .main-container {
@@ -571,7 +550,7 @@ h6 { font-size: 16px;}
 
 .section-subtitle {
     text-align: center;
-    color: var(--secondaryText);
+    color: #718096;
     margin-bottom: 40px;
     font-size: 1.1em;
 }
@@ -588,10 +567,10 @@ h6 { font-size: 16px;}
     position: absolute;
     left: 16px;
     width: 2px;
-    background-color: var(--timelineColor);
+    height: calc(100% - 80px);
+    background: #4a5568;
     top: 40px;
     bottom: 40px;
-    height: calc(100% - 80px);
     z-index: 0;
 }
 
@@ -610,9 +589,9 @@ h6 { font-size: 16px;}
     left: -25px;
     width: 12px;
     height: 12px;
-    background-color: white;
-    border: 2px solid var(--timelineColor);
     border-radius: 50%;
+    background: #4299e1;
+    border: 2px solid #4a5568;
     top: 8px;
     z-index: 1;
 }
@@ -624,22 +603,23 @@ h6 { font-size: 16px;}
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     position: relative;
     margin-right: 0;
+    border:1px solid #4a5568;
 }
 
 .role {
-    color: var(--mainText);
+    color: #2c3e50;
     font-size: 1.4em;
     margin: 0 0 5px 0;
 }
 
 .company {
-    color: var(--secondaryText);
+    color: #718096;
     font-size: 1.1em;
     margin: 0 0 10px 0;
 }
 
 .duration {
-    color: var(--secondaryText);
+    color: #718096;
     font-size: 0.9em;
     margin-bottom: 20px;
 }
@@ -651,7 +631,7 @@ h6 { font-size: 16px;}
 }
 
 .achievements li {
-    color: var(--secondaryText);
+    color: #718096;
     margin-bottom: 15px;
     line-height: 1.6;
     padding-left: 25px;
@@ -665,7 +645,7 @@ h6 { font-size: 16px;}
     top: 8px;
     width: 8px;
     height: 8px;
-    background-color: var(--borderColor);
+    background-color: #4a5568;
     border-radius: 50%;
 }
 
@@ -673,10 +653,10 @@ h6 { font-size: 16px;}
 	display: block;
 	max-width: 600px;
 	margin: 0 auto;
-	border: 1px solid var(--borderColor);
+	border: 1px solid #4a5568;
 	padding: 15px;
 	border-radius: 5px;
-	background-color: var(--mainColor);
+	background-color: #f8f9fc;
 	margin-bottom: 50px;
 
 }
@@ -693,19 +673,19 @@ h6 { font-size: 16px;}
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom:10px; 
-	background-color: var(--secondaryColor);
+	background-color: #f7f9fc;
 	border-radius: 5px;
-	border:1px solid var(--borderColor);
+	border:1px solid #4a5568;
 	font-size: 14px;
 }
 
 
 #submit-btn{
-	margin-top: 10px;
-	width: 100%;
+	margin: 10px 0;
+	width: 200px;
 	padding-top: 10px;
-	padding-bottom:10px; 
+	padding-bottom: 10px;
 	color: #fff;
-	background-color: var(--buttonColor);
-	border:none;
+	background-color: #4299e1;
+	border: none;
 }
