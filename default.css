@@ -19,6 +19,28 @@ a{
 	color:#17a2b8;
 }
 
+.certificate-item a {
+	display: block;
+	position: relative;
+	padding-right: 25px;
+	color: inherit;
+	transition: transform 0.2s;
+}
+
+.certificate-item a:hover {
+	transform: translateX(5px);
+}
+
+.certificate-item a::after {
+	content: '→';
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #17a2b8;
+	font-family: 'Roboto Mono', monospace;
+}
+
 ul{
 	list-style: none;
 }
