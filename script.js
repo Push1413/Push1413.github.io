@@ -65,4 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.remove('active');
         }
     });
+
+    // Update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 });
