@@ -371,6 +371,7 @@ h6 { font-size: 16px;}
 	padding-top: 50px;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+    background-color: #ffffff;
 }
 
 .left-content, .right-content {
@@ -415,9 +416,9 @@ h6 { font-size: 16px;}
     font-weight: 500;
 }
 #skills{
+    background-color: #ffffff;
     display: flex;
     justify-content: space-evenly;
-	background-color: #f7f9fc;
 }
 
 .skills-container {
@@ -425,8 +426,9 @@ h6 { font-size: 16px;}
     flex-wrap: wrap;
     gap: 10px;
     padding: 15px;
-    background-color: #f7f9fc;
+    background-color: #ffffff;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .skill-chip {
@@ -511,7 +513,7 @@ h6 { font-size: 16px;}
 }
 
 .education-item {
-    background-color: #f7f9fc;
+    background-color: #ffffff;
     border: 1px solid #4a5568;
     border-radius: 5px;
     padding: 1.5rem;
@@ -570,17 +572,15 @@ h6 { font-size: 16px;}
 
 }
 .project{
-	border: none;
-	border-radius: 12px;
-	overflow: hidden;
-	background-color: #f7f9fc;
-	-webkit-box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-	-moz-box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-	box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project:hover {
@@ -646,8 +646,8 @@ h6 { font-size: 16px;}
 
 /* Experience Timeline Styles */
 .experience {
-    padding: 50px 0px;
     background-color: #f8f9fc;
+    padding: 50px 0px;
 }
 
 .experience .main-container {
@@ -705,13 +705,13 @@ h6 { font-size: 16px;}
 }
 
 .timeline-content {
-    background: white;
+    background: #ffffff;
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     position: relative;
     margin-right: 0;
-    border:1px solid #4a5568;
+    border: 1px solid #4a5568;
 }
 
 .role {
