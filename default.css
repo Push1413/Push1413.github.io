@@ -9,6 +9,15 @@ h1, h2, h3, h4, h5, h6, strong{
 	font-weight: 500;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-center-no-line-height {
+    text-align: center;
+    line-height: 0;
+}
+
 p, li, span, label, input, textarea{
 	color: #718096;
 	font-family: 'Roboto Mono', monospace;
@@ -385,6 +394,59 @@ h6 { font-size: 16px;}
         grid-template-columns: 1fr;
         gap: 30px;
     }
+
+    .project-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .thumbnail {
+        height: 180px;
+    }
+
+    .timeline {
+        padding: 20px 0 0 20px;
+    }
+
+    .timeline::before {
+        left: 5px;
+    }
+
+    .timeline-item::before {
+        left: -20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 { font-size: 42px; }
+    h2 { font-size: 28px; }
+    h3 { font-size: 22px; }
+    h4 { font-size: 18px; }
+    h5 { font-size: 16px; }
+    h6 { font-size: 14px; }
+
+    .project-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .role {
+        font-size: 1.1em;
+    }
+
+    .company {
+        font-size: 0.9em;
+    }
+
+    .duration {
+        font-size: 0.8em;
+    }
+
+    .achievements li {
+        font-size: 0.85em;
+    }
 }
 
 .certificates {
@@ -648,6 +710,7 @@ h6 { font-size: 16px;}
 .experience {
     background-color: #f8f9fc;
     padding: 50px 0px;
+    overflow-x: hidden;
 }
 
 .experience .main-container {
