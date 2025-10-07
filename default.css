@@ -42,3 +42,33 @@ a {
 ul {
     list-style: none;
 }
+
+.nav-links:not(.active) {
+    /* Push the menu completely off-screen upwards */
+    transform: translateY(-100%);
+    /* Make sure it doesn't take up space */
+    height: 0; 
+    overflow: hidden;
+}
+
+/* 2. SHOW THE MENU WHEN THE '.active' CLASS IS ADDED */
+.nav-links.active {
+    /* Bring the menu back to its full height, right below the navbar */
+    transform: translateY(0); 
+    height: auto; 
+    /* The height needs to be explicitly defined or handled well by content */
+    max-height: 500px; /* Adjust max-height if necessary for content */
+    overflow-y: auto;
+}
+
+/* 3. Ensure the Desktop Menu is always visible */
+@media (min-width: 768px) {
+    /* Tailwind's 'md:flex' handles visibility, but this ensures no transition issues */
+    .nav-links,
+    .nav-links:not(.active) {
+        transform: none; /* Disable transform on desktop */
+        height: auto;
+        overflow: visible;
+        display: flex !important; /* Ensure it's always flex on desktop */
+    }
+}
