@@ -22,21 +22,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     Promise.all(components.map(component => loadComponent(component.url, component.id)))
         .then(() => {
-            // All components are loaded, now we can safely add event listeners
+            // Find elements only AFTER they are loaded into the DOM
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             const navLinksItems = document.querySelectorAll('.nav-links a');
+            const navbar = document.querySelector('.navbar'); // Added for outside click detection
 
-            if (hamburger) {
-                // Toggle menu
-                hamburger.addEventListener('click', function() {
+            if (hamburger && navLinks) {
+                // 1. Toggle menu
+                hamburger.addEventListener('click', function(event) {
+                    // Prevent click from propagating to the document listener below
+                    event.stopPropagation(); 
                     hamburger.classList.toggle('active');
                     navLinks.classList.toggle('active');
                 });
             }
 
             if (navLinksItems) {
-                // Close menu when clicking a link
+                // 2. Close menu when clicking a link
                 navLinksItems.forEach(item => {
                     item.addEventListener('click', function() {
                         if (hamburger && navLinks) {
@@ -47,15 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // Close menu when clicking outside
+            // 3. Close menu when clicking outside (using the new 'navbar' class)
             document.addEventListener('click', function(event) {
-                if (hamburger && navLinks && !event.target.closest('.navbar')) {
+                // Only close if the click is outside the navigation bar container
+                if (hamburger && navLinks && !event.target.closest('nav')) {
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('active');
                 }
             });
 
-            // Update copyright year
+            // 4. Update copyright year
             const currentYearEl = document.getElementById('current-year');
             if (currentYearEl) {
                 currentYearEl.textContent = new Date().getFullYear();
