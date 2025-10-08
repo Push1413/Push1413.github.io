@@ -43,32 +43,107 @@ ul {
     list-style: none;
 }
 
-.nav-links:not(.active) {
-    /* Push the menu completely off-screen upwards */
-    transform: translateY(-100%);
-    /* Make sure it doesn't take up space */
-    height: 0; 
-    overflow: hidden;
+/* ===== NAVBAR RESPONSIVE STYLES ===== */
+
+/* Sticky Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    height: 64px; /* Fixed height for navbar */
 }
 
-/* 2. SHOW THE MENU WHEN THE '.active' CLASS IS ADDED */
-.nav-links.active {
-    /* Bring the menu back to its full height, right below the navbar */
-    transform: translateY(0); 
-    height: auto; 
-    /* The height needs to be explicitly defined or handled well by content */
-    max-height: 500px; /* Adjust max-height if necessary for content */
+/* Hamburger Animation */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 60;
+}
+
+.hamburger.active svg {
+    transform: rotate(90deg);
+}
+
+/* Mobile Navigation Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 40;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Navigation - Slide from Right */
+.nav-links {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 280px;
+    height: calc(100vh - 64px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
     overflow-y: auto;
+    z-index: 50;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 3. Ensure the Desktop Menu is always visible */
+.nav-links.active {
+    transform: translateX(0);
+}
+
+/* Link hover effects */
+.nav-links a {
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #17a2b8;
+}
+
+/* Desktop Navigation */
 @media (min-width: 768px) {
-    /* Tailwind's 'md:flex' handles visibility, but this ensures no transition issues */
-    .nav-links,
-    .nav-links:not(.active) {
-        transform: none; /* Disable transform on desktop */
+    .nav-links {
+        position: static;
+        width: auto;
         height: auto;
+        transform: translateX(0);
+        display: flex !important;
+        background: transparent;
+        box-shadow: none;
         overflow: visible;
-        display: flex !important; /* Ensure it's always flex on desktop */
+        gap: 1rem; /* Space between links on desktop */
     }
+
+    /* Remove padding/borders from desktop links */
+    .nav-links a {
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .nav-overlay {
+        display: none;
+    }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
 }

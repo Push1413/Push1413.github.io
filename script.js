@@ -19,50 +19,80 @@ document.addEventListener('DOMContentLoaded', function() {
         { url: 'components/experience.html', id: 'experience-container' },
         { url: 'components/footer.html', id: 'footer-container' }
     ];
-
-    Promise.all(components.map(component => loadComponent(component.url, component.id)))
-        .then(() => {
-            // Find elements only AFTER they are loaded into the DOM
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            const navLinksItems = document.querySelectorAll('.nav-links a');
-            const navbar = document.querySelector('.navbar'); // Added for outside click detection
-
-            if (hamburger && navLinks) {
-                // 1. Toggle menu
-                hamburger.addEventListener('click', function(event) {
-                    // Prevent click from propagating to the document listener below
-                    event.stopPropagation(); 
-                    hamburger.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-            }
-
-            if (navLinksItems) {
-                // 2. Close menu when clicking a link
-                navLinksItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        if (hamburger && navLinks) {
-                            hamburger.classList.remove('active');
-                            navLinks.classList.remove('active');
-                        }
+    
+        Promise.all(components.map(component => loadComponent(component.url, component.id)))
+            .then(() => {
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                const navLinksItems = document.querySelectorAll('.nav-links a');
+                const navOverlay = document.querySelector('.nav-overlay');
+    
+                // Helper function to close menu
+                function closeMenu() {
+                    if (hamburger && navLinks && navOverlay) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        navOverlay.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        document.body.classList.remove('menu-open');
+                    }
+                }
+    
+                // Toggle mobile menu
+                if (hamburger && navLinks && navOverlay) {
+                    hamburger.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const isActive = navLinks.classList.toggle('active');
+                        navOverlay.classList.toggle('active');
+                        hamburger.classList.toggle('active');
+                        hamburger.setAttribute('aria-expanded', isActive);
+                        document.body.classList.toggle('menu-open', isActive);
                     });
+                }
+    
+                // Close menu when clicking a link
+                if (navLinksItems) {
+                    navLinksItems.forEach(item => {
+                        item.addEventListener('click', function() {
+                            closeMenu();
+                        });
+                    });
+                }
+    
+                // Close menu when clicking overlay
+                if (navOverlay) {
+                    navOverlay.addEventListener('click', closeMenu);
+                }
+    
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (hamburger && navLinks && !e.target.closest('.navbar')) {
+                        closeMenu();
+                    }
                 });
-            }
+    
+                // Close menu on ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeMenu();
+                    }
+                });
+    
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 768) {
+                        closeMenu();
+                    }
+                });
 
-            // 3. Close menu when clicking outside (using the new 'navbar' class)
-            document.addEventListener('click', function(event) {
-                // Only close if the click is outside the navigation bar container
-                if (hamburger && navLinks && !event.target.closest('nav')) {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
+    
+                window.addEventListener('scroll', highlightNav);
+                highlightNav();
+    
+                // Update copyright year
+                const currentYearEl = document.getElementById('current-year');
+                if (currentYearEl) {
+                    currentYearEl.textContent = new Date().getFullYear();
                 }
             });
-
-            // 4. Update copyright year
-            const currentYearEl = document.getElementById('current-year');
-            if (currentYearEl) {
-                currentYearEl.textContent = new Date().getFullYear();
-            }
-        });
 });
